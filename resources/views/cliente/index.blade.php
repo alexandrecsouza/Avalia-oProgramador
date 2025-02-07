@@ -16,7 +16,7 @@
 
 <div>
 
-    <a href="/novocliente"><button>novo cliente</button></a>
+    <a href="/criar_cliente"><button>novo cliente</button></a>
 
 </div>
 

@@ -19,4 +19,14 @@ class ClienteController extends Controller
         
         return view('cliente.index',['clientes'=>$clientes]);
     }
+    
+    public function create(){
+
+        return view('cliente.criar_cliente');
+       }
+    
+    public function store(){
+
+        return view('cliente.salvar_cliente');
+    }
 }

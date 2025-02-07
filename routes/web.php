@@ -17,3 +17,5 @@ Route::get('/home', function () {
 
 
 Route::get('/cliente',[ClienteController::class,'index']);
+Route::get('/criar_cliente',[ClienteController::class,'create']);
+Route::post('/salvar_cliente',[ClienteController::class,'store']);
