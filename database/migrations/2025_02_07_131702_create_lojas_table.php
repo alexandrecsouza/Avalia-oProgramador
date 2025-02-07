@@ -12,8 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lojas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            //$table->id();
+            //$table->timestamps();
+            $table->string('id');
+            $table->string('nome');
+            $table->string('cnpj');
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('UF');
+
+
         });
     }
 
