@@ -25,8 +25,21 @@ class ClienteController extends Controller
         return view('cliente.criar_cliente');
        }
     
-    public function store(){
+    public function store(Request $request){
 
-        return view('cliente.salvar_cliente');
+        $request->all();        
+        
+        $cliente=$request;
+
+        $id= $request->id;
+        $nome= $request->nome;
+        $cpf=$request->cpf;
+        $sexo=$request->sexo;
+        $email=$request->email;
+
+        DB::insert('insert into clientes (id, nome , cpf , sexo, email) values (?, ?, ?,?, ?)', [$id,$nome,$cpf,$sexo,$email]);
+    
+
+        return view('cliente.salvar_cliente',['cliente'=>$cliente]);
     }
 }

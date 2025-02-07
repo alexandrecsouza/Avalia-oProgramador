@@ -9,7 +9,7 @@
 <form action="/salvar_cliente" method="post">
 @csrf
 
-
+ID: <input id="id" type="text"name="id">  
 Nome: <input id="nome" type="text"name="nome">  
 cpf: <input type="text"name="cpf">
 sexo: <input type="text"name="sexo">
