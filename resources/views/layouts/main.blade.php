@@ -17,7 +17,9 @@
    
 <header>
     <nav>
-    <a href="">Clientes</a>
+    <a href="/cliente">clientes</a>
+
+    <a href="/loja">lojas</a>
     </nav>
 </header>
 

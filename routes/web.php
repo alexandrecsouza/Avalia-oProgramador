@@ -31,3 +31,15 @@ Route::get('/editar_cliente/{id}',[ClienteController::class,'edit']);
 Route::put('/atualizar_cliente/{id}',[ClienteController::class,'update']);
 Route::delete('/deletar_cliente/{id}',[ClienteController::class,'destroy']);
 
+
+
+Route::get('/loja',[LojaController::class,'index']);
+Route::get('/criar_loja',[LojaController::class,'create']);
+Route::post('/salvar_loja',[LojaController::class,'store']);
+Route::get('/pesquisa_loja',[LojaController::class,'search']);
+Route::get('/editar_loja/{id}',[LojaController::class,'edit']);
+Route::put('/atualizar_loja/{id}',[LojaController::class,'update']);
+Route::delete('/deletar_loja/{id}',[LojaController::class,'destroy']);
+
+
+
