@@ -26,11 +26,14 @@
 <div>
 @foreach ($clientes as $cliente)
 
-<div>
-<p>name {{$cliente->nome}}</p>
+    <div>
+    <p>name {{$cliente->nome}}</p>
 
+    <form action="/editar_cliente/{{$cliente->id}}" method="GET">
+    <input type="submit" value="editar">
+    </form>
 
-</div>
+    </div>
 
 @endforeach
 

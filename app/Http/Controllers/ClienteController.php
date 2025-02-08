@@ -54,28 +54,34 @@ class ClienteController extends Controller
 
         return view('cliente.salvar_cliente',['cliente'=>$cliente]);
     }
-    /*
-    public function edit(){
+    
+    public function edit($id){
 
-        return view('cliente.criar_cliente');
+        //dd($id);
+        $cliente = DB::select('select * from clientes where id = ?', [$id]);
+
+        return view('cliente.editar_cliente',['cliente'=>$cliente]);
        }
     
-    public function update(Request $request){
+    public function update($old_id){
+
+        $request= Request ();
 
         $request->all();        
         
         $cliente=$request;
 
         $id= $request->id;
+        
         $nome= $request->nome;
         $cpf=$request->cpf;
         $sexo=$request->sexo;
         $email=$request->email;
 
-        DB::insert('insert into clientes (id, nome , cpf , sexo, email) values (?, ?, ?,?, ?)', [$id,$nome,$cpf,$sexo,$email]);
+        DB::update('update clientes set id = ?, nome= ?,cpf = ?, sexo = ?, email =? where id = ?', [$id,$nome,$cpf,$sexo,$email,$old_id]);
     
 
         return view('cliente.salvar_cliente',['cliente'=>$cliente]);
     }
-    */
+    
 }
