@@ -26,7 +26,7 @@ class ClienteController extends Controller
         
         $search= $request->pesquisa;
         //dd($request->all());
-        $clientes =DB::select('select * from clientes where id =? or nome = ? ',[$search,$search]);
+        $clientes =DB::select('select * from clientes where id =? or nome = ? or cpf  = ?',[$search,$search,$search]);
         
         
         return view('cliente.index',['clientes'=>$clientes]);

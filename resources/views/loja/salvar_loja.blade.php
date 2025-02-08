@@ -7,7 +7,7 @@
 
 @section('conteudo')
 
-<h1>Cliente salvo</h1>
+<h1>LOva salva</h1>
 
 <a href="/loja">voltar</a>
 

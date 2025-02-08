@@ -25,7 +25,7 @@ class LojaController extends Controller
         
         $search= $request->pesquisa;
         //dd($request->all());
-        $lojas =DB::select('select * from lojas where id =? or nome = ? ',[$search,$search]);
+        $lojas =DB::select('select * from lojas where id =? or nome = ? or cnpj = ?',[$search,$search,$search]);
         
         
         return view('loja.index',['lojas'=>$lojas]);
