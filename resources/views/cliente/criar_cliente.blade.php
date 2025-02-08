@@ -1,9 +1,15 @@
 
 
+@extends('layouts.main')
+
+@section('titulo','Clientes')
+
+@section('conteudo')
+
 <h1>Novo Cliente</h1>
 
 
-
+<script scr="/js/scripts.js"></script>
 <div>
 
 <form action="/salvar_cliente" method="post">
@@ -18,7 +24,7 @@ Email: <input type="email"name="email">
 
 
 
-<input type="submit" value="salvar" onclick="return validacao()">
+<input type="submit" value="salvar" onclick="return validacao_cliente()">
 
 </form>
 
@@ -27,21 +33,5 @@ Email: <input type="email"name="email">
 
 
 
+@endsection
 
-
-<script>
-
-function validacao(){
-
-var nome= document.getElementById("nome");
-
-
-if(nome.value==""){
-alert("Nome vazio");
-nome.focus();
-return false;
-}
-return true;
-}
-
-</script>

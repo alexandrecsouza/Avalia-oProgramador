@@ -1,8 +1,17 @@
 
 
+
+@extends('layouts.main')
+
+@section('titulo','Clientes')
+
+@section('conteudo')
+
 <h1>Cliente salvo</h1>
 
 <a href="/cliente">voltar</a>
+
+
 <div>
 <p>ID:{{$cliente->id}} </p>
 <p>Nome:{{$cliente->nome}} </p>
@@ -11,3 +20,5 @@
 <p>email: {{$cliente->email}}</p>
 
 </div>
+
+@endsection

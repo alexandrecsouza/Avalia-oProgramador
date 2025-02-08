@@ -1,5 +1,9 @@
 
+@extends('layouts.main')
 
+@section('titulo','Clientes')
+
+@section('conteudo')
 <h1>Clientes</h1>
 
 
@@ -48,3 +52,6 @@
 @endforeach
 
 </div>
+
+
+@endsection

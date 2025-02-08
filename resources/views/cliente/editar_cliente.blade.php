@@ -1,5 +1,11 @@
 
 
+@extends('layouts.main')
+
+@section('titulo','Clientes')
+
+@section('conteudo')
+
 <h1>Editar Cliente</h1>
 
 
@@ -25,4 +31,6 @@ Email: <input type="email"name="email" value="{{$cliente[0]->email}}">
 
 </div>
 
+
+@endsection
 
