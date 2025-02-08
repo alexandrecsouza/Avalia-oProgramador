@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script scr="/js/scripts.js"></script>
+    <script scr="/js/script.js"></script>
 
 
 </head>
@@ -26,6 +26,54 @@
 <footer>
 
 </footer>
+
+<script>
+
+console.log("funcionando");
+
+
+
+    function validacao_cliente(){
+
+        var id= document.getElementById("id");
+        var nome= document.getElementById("nome");
+        var cpf= document.getElementById("cpf");
+        
+        var email= document.getElementById("email");
+        
+        
+        if(id.value==""){
+        alert("ID vazio");
+        id.focus();
+        return false;
+        }
+
+        if(nome.value==""){
+        alert("Nome vazio");
+        nome.focus();
+        return false;
+        }
+        if(cpf.value==""){
+        alert("CPF vazio");
+        nome.focus();
+        return false;
+        }
+        if(email.value==""){
+        alert("email vazio");
+        nome.focus();
+        return false;
+        }
+        
+
+
+
+
+        return true;
+
+        }
+
+    
+</script>
 
 
 </body>
