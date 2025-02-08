@@ -52,4 +52,11 @@ Route::put('/atualizar_vendedor/{id}',[VendedorController::class,'update']);
 Route::delete('/deletar_vendedor/{id}',[VendedorController::class,'destroy']);
 
 
+Route::get('/produto',[ProdutoController::class,'index']);
+Route::get('/criar_produto',[ProdutoController::class,'create']);
+Route::post('/salvar_produto',[ProdutoController::class,'store']);
+Route::get('/pesquisa_produto',[ProdutoController::class,'search']);
+Route::get('/editar_produto/{id}',[ProdutoController::class,'edit']);
+Route::put('/atualizar_produto/{id}',[ProdutoController::class,'update']);
+Route::delete('/deletar_produto/{id}',[ProdutoController::class,'destroy']);
 

@@ -21,7 +21,9 @@
 
     <a href="/loja">lojas</a>
 
-    <a href="/vendedor">vendador</a>
+    <a href="/vendedor">vendedor</a>
+
+    <a href="/produto">produto</a>
     </nav>
 </header>
 
