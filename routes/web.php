@@ -22,4 +22,5 @@ Route::post('/salvar_cliente',[ClienteController::class,'store']);
 Route::get('/pesquisa_cliente',[ClienteController::class,'search']);
 Route::get('/editar_cliente/{id}',[ClienteController::class,'edit']);
 Route::put('/atualizar_cliente/{id}',[ClienteController::class,'update']);
+Route::delete('/deletar_cliente/{id}',[ClienteController::class,'destroy']);
 

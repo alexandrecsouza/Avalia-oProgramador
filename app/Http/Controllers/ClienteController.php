@@ -83,5 +83,16 @@ class ClienteController extends Controller
 
         return view('cliente.salvar_cliente',['cliente'=>$cliente]);
     }
+
+    public function destroy($id){
+
+        //dd($id);
+        
+
+        $deleted = DB::delete('delete from clientes where id = ?',[$id]);
+
+        return redirect('/cliente');
+       }
+    
     
 }

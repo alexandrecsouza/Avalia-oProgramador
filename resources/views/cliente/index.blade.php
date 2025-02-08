@@ -29,9 +29,19 @@
     <div>
     <p>name {{$cliente->nome}}</p>
 
-    <form action="/editar_cliente/{{$cliente->id}}" method="GET">
-    <input type="submit" value="editar">
-    </form>
+
+
+        <form action="/editar_cliente/{{$cliente->id}}" method="GET">
+        <input type="submit" value="editar">
+        </form>
+
+
+        <form action="/deletar_cliente/{{$cliente->id}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="excluir">
+        </form>
+
 
     </div>
 
