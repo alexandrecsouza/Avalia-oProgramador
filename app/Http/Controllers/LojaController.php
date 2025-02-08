@@ -62,25 +62,28 @@ class LojaController extends Controller
         //dd($id);
         $loja = DB::select('select * from lojas where id = ?', [$id]);
 
-        return view('loja.editar_loja',['loja'=>$lojas]);
+        return view('loja.editar_loja',['loja'=>$loja]);
        }
     
     public function update($old_id){
 
         $request= Request ();
 
-        $request->all();        
+        $request->all();  
+           
         
-        $cliente=$request;
+        $loja=$request;
 
         $id= $request->id;
-        
         $nome= $request->nome;
-        $cpf=$request->cpf;
-        $sexo=$request->sexo;
-        $email=$request->email;
+        $cnpj=$request->cnpj;
+        $cep=$request->cep;
+        $endereco=$request->endereco;
+        $bairro=$request->bairro;
+        $cidade=$request->cidade;
+        $uf=$request->uf;
 
-        DB::update('update lojas set id = ?, nome= ?,cpf = ?, sexo = ?, email =? where id = ?', [$id,$nome,$cpf,$sexo,$email,$old_id]);
+        DB::update('update lojas set id = ?, nome= ?,cnpj = ?, cep = ?, endereco =?, bairro = ?, cidade = ?, uf = ? where id = ?',  [$id,$nome,$cnpj,$cep,$endereco,$bairro,$cidade,$uf,$old_id]);
     
 
         return view('loja.salvar_loja',['loja'=>$loja]);

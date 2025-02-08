@@ -61,7 +61,7 @@
 
 
             <td>
-                <form action="/editar_lojas/{{$loja->id}}" method="GET">
+                <form action="/editar_loja/{{$loja->id}}" method="GET">
                 <input type="submit" value="editar">
                 </form>
             </td>

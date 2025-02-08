@@ -43,3 +43,13 @@ Route::delete('/deletar_loja/{id}',[LojaController::class,'destroy']);
 
 
 
+Route::get('/vendedor',[VendedorController::class,'index']);
+Route::get('/criar_vendedor',[VendedorController::class,'create']);
+Route::post('/salvar_vendedor',[VendedorController::class,'store']);
+Route::get('/pesquisa_vendedor',[VendedorController::class,'search']);
+Route::get('/editar_vendedor/{id}',[VendedorController::class,'edit']);
+Route::put('/atualizar_vendedor/{id}',[VendedorController::class,'update']);
+Route::delete('/deletar_vendedor/{id}',[VendedorController::class,'destroy']);
+
+
+

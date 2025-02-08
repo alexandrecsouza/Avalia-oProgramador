@@ -20,6 +20,8 @@
     <a href="/cliente">clientes</a>
 
     <a href="/loja">lojas</a>
+
+    <a href="/vendedor">vendador</a>
     </nav>
 </header>
 
