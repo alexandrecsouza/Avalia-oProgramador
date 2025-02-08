@@ -19,7 +19,19 @@ class ClienteController extends Controller
         
         return view('cliente.index',['clientes'=>$clientes]);
     }
-    
+
+    public function search(Request $request){
+
+        $request->all();
+        
+        $search= $request->pesquisa;
+        //dd($request->all());
+        $clientes =DB::select('select * from clientes where id =? or nome = ? ',[$search,$search]);
+        
+        
+        return view('cliente.index',['clientes'=>$clientes]);
+    }
+
     public function create(){
 
         return view('cliente.criar_cliente');
@@ -42,4 +54,28 @@ class ClienteController extends Controller
 
         return view('cliente.salvar_cliente',['cliente'=>$cliente]);
     }
+    /*
+    public function edit(){
+
+        return view('cliente.criar_cliente');
+       }
+    
+    public function update(Request $request){
+
+        $request->all();        
+        
+        $cliente=$request;
+
+        $id= $request->id;
+        $nome= $request->nome;
+        $cpf=$request->cpf;
+        $sexo=$request->sexo;
+        $email=$request->email;
+
+        DB::insert('insert into clientes (id, nome , cpf , sexo, email) values (?, ?, ?,?, ?)', [$id,$nome,$cpf,$sexo,$email]);
+    
+
+        return view('cliente.salvar_cliente',['cliente'=>$cliente]);
+    }
+    */
 }

@@ -2,9 +2,10 @@
 
 <h1>Clientes</h1>
 
-{{-- pesquisa --}}
+
+
 <div>
-    <form action="/pesquisacliente" method="GET">
+    <form action="/pesquisa_cliente" method="GET">
 
     <input type="text"name="pesquisa">
 
