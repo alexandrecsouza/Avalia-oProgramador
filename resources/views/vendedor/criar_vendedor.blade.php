@@ -16,7 +16,7 @@
 @csrf
 
 ID:         <input id="id" type="text"name="id">  
-ID_Loja:       <input id="id_loja" type="text"name="id_loja">  
+ID da Loja:       <input id="id_loja" type="text"name="id_loja">  
 Nome:       <input id="nome" type="text"name="nome">
 CPF:        <input id="cpf" type="text"name="cpf">
 
