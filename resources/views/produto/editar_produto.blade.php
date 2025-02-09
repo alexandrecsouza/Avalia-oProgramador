@@ -16,12 +16,46 @@
 @csrf
 @method('PUT')
 
-ID:         <input id="id" type="text"name="id" value="{{$produto[0]->id}}">  
-Nome:       <input id="nome" type="text"name="nome" value="{{$produto[0]->nome}}">  
-Cor:       <input id="cor" type="text"name="cor" value="{{$produto[0]->cor}}">
-Valor:        <input id="valor" type="text"name="valor" value="{{$produto[0]->valor}}">
 
 
+
+<table>
+
+<tr>
+    <td>
+    ID:
+    </td>
+    <td>
+    <input id="id" type="text"name="id" value="{{$produto[0]->id}}">
+    </td>
+</tr>
+<tr>
+    <td>
+    Nome:
+    </td>
+    <td>
+    <input id="nome" type="text"name="nome" value="{{$produto[0]->nome}}">  
+    </td>
+</tr>
+<tr>
+    <td>
+    Cor: 
+    </td>
+    <td>
+    <input id="cor" type="text"name="cor" value="{{$produto[0]->cor}}">
+    </td>
+</tr>
+<tr>
+    <td>
+    Valor: 
+    </td>
+    <td>
+    
+    
+    <input id="valor"  placeholder="1.0" step="0.01" name="valor" value="{{$produto[0]->valor}}">
+
+    </td>
+</tr>
 
 
 <input type="submit" value="atualizar">

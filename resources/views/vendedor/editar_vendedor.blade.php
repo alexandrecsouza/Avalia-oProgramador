@@ -17,11 +17,45 @@
 @method('PUT')
 
 
-ID:         <input id="id" type="text"name="id" value="{{$vendedor[0]->id}}">  
-ID_Loja:       <input id="id_loja" type="text"name="id_loja" value="{{$vendedor[0]->id_loja}}">  
-Nome:       <input id="nome" type="text"name="nome" value="{{$vendedor[0]->nome}}">
-CPF:        <input id="cpf" type="text"name="cpf" value="{{$vendedor[0]->cpf}}">
 
+<table>
+
+<tr>
+    <td>
+    ID:
+    </td>
+    <td>
+    <input id="id" type="text"name="id" value="{{$vendedor[0]->id}}">   
+    </td>
+</tr>
+<tr>
+    <td>
+    ID da Loja:
+    </td>
+    <td>
+    <input id="id_loja" type="text"name="id_loja" value="{{$vendedor[0]->id_loja}}">
+    </td>
+</tr>
+<tr>
+    <td>
+    Nome:
+    </td>
+    <td>
+    <input id="nome" type="text"name="nome" value="{{$vendedor[0]->nome}}">
+    </td>
+</tr>
+
+
+<tr>
+    <td>
+    CPF:
+    </td>
+    <td>
+    <input id="cpf" type="text"name="cpf" value="{{$vendedor[0]->cpf}}">
+    </td>
+</tr>
+
+</table>
 
 
 

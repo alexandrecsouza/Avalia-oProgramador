@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('id_loja');
             $table->string('id_vendedor');
             $table->string('data');
-            $table->string('valor');
+            $table->decimal('valor');
             $table->string('observacao');
             $table->string('pagamento');
         });

@@ -47,28 +47,28 @@
     </thead>
 
     <tbody>
-    @foreach ($vendas as $venda)
+        
         <tr>
-            <th scope="row">{{$venda->id}}</th>
-            <td>{{$venda->id}}</td>
-            <td>{{$venda->id}}</td>
-            <td>{{$venda->id}}</td>
-            <td>{{$venda->valor}}</td>
-            <td>{{$venda->id}}</td>
-            <td>{{$venda->pagamento}}</td>
-            <td>{{$venda->observacao}}</td>
+            <th scope="row">{{$relatorio['id']}}</th>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['id']}}</td>
             
             
 
 
             <td>
-                <form action="/editar_venda/{{$venda->id}}" method="GET">
+                <form action="/editar_venda/{{$relatorio['id']}}" method="GET">
                 <input type="submit" value="editar">
                 </form>
             </td>
 
             <td>
-                <form action="/deletar_venda/{{$venda->id}}" method="POST">
+                <form action="/deletar_venda/{{$relatorio['id']}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <input type="submit" value="excluir">
@@ -77,7 +77,7 @@
 
 
         </tr>
-    @endforeach
+        
     </tbody>
 
 

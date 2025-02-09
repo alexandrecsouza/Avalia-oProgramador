@@ -13,10 +13,24 @@ class VendaController extends Controller
         
         $vendas =DB::select('select * from vendas');
 
-      
+        $i=0;
+
+        $nome_loja=DB::select('select nome from lojas where id=?',[$vendas[$i]->id_loja]);
+        $nome_cliente=DB::select('select nome from clientes where id=?',[$vendas[$i]->id_cliente]);
+        $nome_vendedor=DB::select('select nome from vendedores where id=?',[$vendas[$i]->id_vendedor]);
         
+        $relatorio=[
+            "id" => $vendas[$i]->id,
+            "nome_loja" =>$nome_loja,
+            "nome_cliente" =>  $nome_cliente,
+            "nome_vendedor" => $nome_vendedor,
+            "quantidade_produtos" => 0,
+            "pagamento" => $vendas[$i]->pagamento,
+            "observacao" => $vendas[$i]->observacao
+        ];        
         
-        return view('venda.index',['vendas'=>$vendas]);
+        //dd($relatorio);
+        return view('venda.index',['relatorio'=>$relatorio]);
     }
 
     public function search(Request $request){
@@ -76,6 +90,7 @@ class VendaController extends Controller
 
             $valor_produtos =DB::select('select valor from produtos where id =?',[$id_produto[$i]]);
         
+            $valor+= $valor_produtos*$quantidade[$i];
             //dd($valor_produtos);
 
             DB::insert('insert into venda_produtos (id_vendas, id_produto) values (?, ?)', [$id,$id_produto[$i]]);

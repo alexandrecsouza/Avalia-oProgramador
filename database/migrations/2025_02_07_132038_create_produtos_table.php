@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id');
             $table->string('nome');
             $table->string('cor');
-            $table->string('valor');
+            $table->decimal('valor');
             
         });
     }
