@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script scr="/js/script.js"></script>
-
+    
+    <script src="/js/script.js"></script>
 
 </head>
 <body>
@@ -24,6 +24,8 @@
     <a href="/vendedor">vendedor</a>
 
     <a href="/produto">produto</a>
+
+    <a href="/venda">venda</a>
     </nav>
 </header>
 

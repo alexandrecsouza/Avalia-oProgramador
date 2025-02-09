@@ -2,7 +2,7 @@
 
 @extends('layouts.main')
 
-@section('titulo','Produto')
+
 
 @section('conteudo')
 
@@ -19,14 +19,17 @@ ID:                 <input id="id" type="text"name="id">
 ID do Cliente:      <input id="id_cliente" type="text"name="id_cliente">  
 ID da loja:         <input id="id_loja" type="text"name="cor">
 ID do Vendedor:     <input id="id_vendedor" type="text"name="id_vendedor">
-Data da Venda:      <input id="data" type="text"name="data">
-
-
+Data da Venda:      <input id="data" type="date"name="data" min="1900-01-01" max="2100-12-31">
 
 Forma de Pagamento: <input id="pagamento" type="text"name="pagamento">
 Observação          <input id="observacao" type="text"name="observacao">
 
 
+<table id="produtos">
+
+</table>
+
+<button type="button" onclick="adiciona_produto()">adicionar produto</button>
 
 <input type="submit" value="salvar" onclick="return true">
 
@@ -35,6 +38,21 @@ Observação          <input id="observacao" type="text"name="observacao">
 </div>
 
 
+
+<script>
+
+function adiciona_produto(){
+
+    var tabela=document.getElementById("produtos");
+    
+
+    conteudo='<tr><td>ID Produto </td><td><input class="id_produto" type="text"name="id_produto[]"></td></tr>';
+
+    tabela.insertAdjacentHTML("beforeend", conteudo );
+    
+}
+
+</script>
 
 
 @endsection

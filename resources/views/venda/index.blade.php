@@ -47,7 +47,7 @@
     </thead>
 
     <tbody>
-    @foreach ($venda as $venda)
+    @foreach ($vendas as $venda)
         <tr>
             <th scope="row">{{$venda->id}}</th>
             <td>{{$venda->nome_cliente}}</td>
