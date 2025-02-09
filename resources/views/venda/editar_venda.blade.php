@@ -1,20 +1,21 @@
 
 
+
 @extends('layouts.main')
 
 
 
 @section('conteudo')
 
-<h1>Nova Venda</h1>
+<h1>Editar Venda</h1>
 
 
 <script scr="/js/scripts.js"></script>
 <div>
 
-<form action="/salvar_venda" method="post">
+<form action="/atualizar_venda/{{$valor['id']}}" method="post">
 @csrf
-
+@method('PUT')
 
 <table>
 
@@ -23,7 +24,7 @@
     ID:
     </td>
     <td>
-    <input id="id" type="text"name="id" value="000">
+    <input id="id" type="text"name="id" value="{{$valor['id']}}">
     </td>
 </tr>
 <tr>
@@ -31,7 +32,7 @@
     ID do Cliente:
     </td>
     <td>
-    <input id="id_cliente" type="text"name="id_cliente" value="000">  
+    <input id="id_cliente" type="text"name="id_cliente" value="{{$valor['id_cliente']}}">  
     </td>
 </tr>
 <tr>
@@ -39,7 +40,7 @@
     ID da loja:
     </td>
     <td>
-    <input id="id_loja" type="text"name="id_loja" value="000">
+    <input id="id_loja" type="text"name="id_loja" value="{{$valor['id_loja']}}">
     </td>
 </tr>
 
@@ -49,7 +50,7 @@
     ID do Vendedor: 
     </td>
     <td>
-    <input id="id_vendedor" type="text"name="id_vendedor" value="000">
+    <input id="id_vendedor" type="text"name="id_vendedor" value="{{$valor['id_vendedor']}}">
     </td>
 </tr>
 
@@ -58,7 +59,7 @@
     Data da Venda: 
     </td>
     <td>
-    <input id="data" type="date"name="data" min="1900-01-01" max="2100-12-31" value="2020-01-01">
+    <input id="data" type="date"name="data" min="1900-01-01" max="2100-12-31" value="{{$valor['data']}}">
     </td>
 </tr>
 
@@ -69,7 +70,7 @@
     <td>
         
 
-    <select  id="pagamento" name="pagamento">        
+    <select  id="pagamento" name="pagamento" value="{{$valor ['pagamento']}}">        
         <option value="dinheiro">Dinheiro</option>
         <option value="credito">Crédito</option>
         <option value="debito">Débito</option>
@@ -83,17 +84,24 @@
     Observação:
     </td>
     <td>
-    <textarea id="observacao" type="text"name="observacao" >observacao</textarea>
+    <textarea id="observacao" type="text"name="observacao" text="texto">{{$valor['observacao']}}</textarea>
     </td>
 </tr>
 
 </table>
 
 
-
 <table id="produtos">
 
+    @for($i=0;$i< sizeof($valor['id_produtos']);$i++)    
+    <tr>
+    <td>ID Produto:<input class="id_produto" type="text"name="id_produto[]" value="{{$valor['id_produtos'][$i]}}"></td>
+    <td>quantidade:<input type="number"  name="quantidade[]" min="0" value="{{$valor['qtd_produtos'][$i]}}" /></td>
+    </tr>
+
+    @endfor
 </table>
+
 
 <button type="button" onclick="adiciona_produto()">adicionar produto</button>
 
@@ -107,7 +115,7 @@
 
 <script>
 
-window.onload=adiciona_produto();
+
 
 function adiciona_produto(){
 

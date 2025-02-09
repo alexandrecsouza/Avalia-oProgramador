@@ -47,16 +47,23 @@
     </thead>
 
     <tbody>
-        
+        @foreach($relatorios as $relatorio)
         <tr>
             <th scope="row">{{$relatorio['id']}}</th>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
-            <td>{{$relatorio['id']}}</td>
+            <td>{{$relatorio['nome_loja']}}</td>
+            <td>{{$relatorio['nome_cliente']}}</td>
+            <td>{{$relatorio['nome_vendedor']}}</td>
+            <td>{{$relatorio['valor']}}</td>
+            <td>
+            @foreach($relatorio['quantidade'] as $qtd)
+            <li> {{$qtd }} </li>
+            @endforeach
+            </td>
+
+            <td>{{$relatorio['pagamento']}}</td>
+            <td>{{$relatorio['observacao']}}</td>
+            
+            
             
             
 
@@ -77,7 +84,7 @@
 
 
         </tr>
-        
+        @endforeach
     </tbody>
 
 

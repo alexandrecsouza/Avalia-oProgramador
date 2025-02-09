@@ -61,6 +61,11 @@ Route::put('/atualizar_produto/{id}',[ProdutoController::class,'update']);
 Route::delete('/deletar_produto/{id}',[ProdutoController::class,'destroy']);
 
 
+
 Route::get('/venda',[VendaController::class,'index']);
 Route::get('/criar_venda',[VendaController::class,'create']);
 Route::post('/salvar_venda',[VendaController::class,'store']);
+Route::get('/pesquisa_venda',[VendaController::class,'search']);
+Route::get('/editar_venda/{id}',[VendaController::class,'edit']);
+Route::put('/atualizar_venda/{id}',[VendaController::class,'update']);
+Route::delete('/deletar_venda/{id}',[VendaController::class,'destroy']);

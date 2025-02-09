@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->string('id_vendas');
             $table->string('id_produto');
+            $table->integer('quantidade');
         });
     }
 
