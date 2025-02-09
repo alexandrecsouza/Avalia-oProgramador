@@ -36,7 +36,18 @@ class ClienteController extends Controller
 
         return view('cliente.criar_cliente');
        }
-    
+
+    function id_existe($id){
+
+        $clientes =DB::select('select * from clientes where id =? ',[$id]);
+        
+        if($clientes){
+            return true;
+        }
+
+        return false;
+    }
+
     public function store(Request $request){
 
         $request->all();        
@@ -49,6 +60,11 @@ class ClienteController extends Controller
         $sexo=$request->sexo;
         $email=$request->email;
 
+        /*
+        if($this->id_existe($id)){
+            return view('cliente.criar_cliente');
+        }
+        */
         DB::insert('insert into clientes (id, nome , cpf , sexo, email) values (?, ?, ?,?, ?)', [$id,$nome,$cpf,$sexo,$email]);
     
 
