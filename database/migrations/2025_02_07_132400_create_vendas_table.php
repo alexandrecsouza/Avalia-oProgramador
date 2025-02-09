@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('id_vendedor');
             */
             $table->string('id');
+            $table->string('id_cliente');
+            $table->string('id_loja');
+            $table->string('id_vendedor');
             $table->string('data');
             $table->string('valor');
             $table->string('observacao');

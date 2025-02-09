@@ -17,7 +17,7 @@
 
 ID:                 <input id="id" type="text"name="id">  
 ID do Cliente:      <input id="id_cliente" type="text"name="id_cliente">  
-ID da loja:         <input id="id_loja" type="text"name="cor">
+ID da loja:         <input id="id_loja" type="text"name="id_loja">
 ID do Vendedor:     <input id="id_vendedor" type="text"name="id_vendedor">
 Data da Venda:      <input id="data" type="date"name="data" min="1900-01-01" max="2100-12-31">
 
@@ -46,7 +46,11 @@ function adiciona_produto(){
     var tabela=document.getElementById("produtos");
     
 
-    conteudo='<tr><td>ID Produto </td><td><input class="id_produto" type="text"name="id_produto[]"></td></tr>';
+    conteudo=
+    '<tr>'+
+    '<td>ID Produto:<input class="id_produto" type="text"name="id_produto[]"></td>'+
+    '<td>quantidade:<input type="number"  name="quantidade[]" min="1" value="1" /></td>'+
+    '</tr>';
 
     tabela.insertAdjacentHTML("beforeend", conteudo );
     

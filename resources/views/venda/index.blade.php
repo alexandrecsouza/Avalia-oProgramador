@@ -50,11 +50,11 @@
     @foreach ($vendas as $venda)
         <tr>
             <th scope="row">{{$venda->id}}</th>
-            <td>{{$venda->nome_cliente}}</td>
-            <td>{{$venda->nome_vendador}}</td>
-            <td>{{$venda->valor_total}}</td>
-            <td>{{$venda->valor_total}}</td>
-            <td>{{$venda->quantidade}}</td>
+            <td>{{$venda->id}}</td>
+            <td>{{$venda->id}}</td>
+            <td>{{$venda->id}}</td>
+            <td>{{$venda->valor}}</td>
+            <td>{{$venda->id}}</td>
             <td>{{$venda->pagamento}}</td>
             <td>{{$venda->observacao}}</td>
             
