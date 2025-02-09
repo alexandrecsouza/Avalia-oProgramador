@@ -92,7 +92,13 @@
 
 
 <table id="produtos">
-
+    <tr id="produto_0">
+    <td>ID Produto:<input class="id_produto" type="text"name="id_produto[]" value="000"></td>
+    <td>quantidade:<input type="number"  name="quantidade[]" min="0" value="0" /></td>
+    <td>
+    <button type="button" onclick='remove_produto("produto_0")'>remover</button>
+    </td>
+    </tr>
 </table>
 
 <button type="button" onclick="adiciona_produto()">adicionar produto</button>
@@ -107,7 +113,8 @@
 
 <script>
 
-window.onload=adiciona_produto();
+var i=0;
+var n_itens=1;
 
 function adiciona_produto(){
 
@@ -115,13 +122,32 @@ function adiciona_produto(){
     
 
     conteudo=
-    '<tr>'+
+    '<tr   id= "produto_'+  i +  '">'+
     '<td>ID Produto:<input class="id_produto" type="text"name="id_produto[]" value="000"></td>'+
     '<td>quantidade:<input type="number"  name="quantidade[]" min="0" value="0" /></td>'+
+    '<td>'+
+    
+    '<button type="button" onclick=\'remove_produto("produto_'+i+'")\'>remover</button>'+
+
+    '</td>'+
     '</tr>';
 
     tabela.insertAdjacentHTML("beforeend", conteudo );
-    
+    i++;
+    n_itens++;
+}
+
+
+function remove_produto(id){
+
+    var tabela=document.getElementById(id);
+
+    tabela.remove();
+    n_itens--;
+
+    if(n_itens<1){
+        adiciona_produto();
+    }
 }
 
 </script>

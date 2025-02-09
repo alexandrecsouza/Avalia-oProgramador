@@ -94,10 +94,18 @@
 <table id="produtos">
 
     @for($i=0;$i< sizeof($valor['id_produtos']);$i++)    
+
+    <tr>
     <tr>
     <td>ID Produto:<input class="id_produto" type="text"name="id_produto[]" value="{{$valor['id_produtos'][$i]}}"></td>
     <td>quantidade:<input type="number"  name="quantidade[]" min="0" value="{{$valor['qtd_produtos'][$i]}}" /></td>
+    <td>
+    <button type="button" >remover</button>
+    </td>
     </tr>
+
+
+    
 
     @endfor
 </table>
@@ -113,9 +121,11 @@
 
 
 
+
 <script>
 
-
+var i=0;
+var n_itens=1;
 
 function adiciona_produto(){
 
@@ -123,16 +133,39 @@ function adiciona_produto(){
     
 
     conteudo=
-    '<tr>'+
+    '<tr   id= "produto_'+  i +  '">'+
     '<td>ID Produto:<input class="id_produto" type="text"name="id_produto[]" value="000"></td>'+
     '<td>quantidade:<input type="number"  name="quantidade[]" min="0" value="0" /></td>'+
+    '<td>'+
+    
+    '<button type="button" onclick=\'remove_produto("produto_'+i+'")\'>remover</button>'+
+
+    '</td>'+
     '</tr>';
 
     tabela.insertAdjacentHTML("beforeend", conteudo );
-    
+    i++;
+    n_itens++;
+}
+
+
+function remove_produto(id){
+
+    var tabela=document.getElementById(id);
+
+    tabela.innerHTML=" ";
+    tabela.remove();
+    n_itens--;
+
+    if(n_itens<1){
+        adiciona_produto();
+    }
+
+    console.log(id);
 }
 
 </script>
+
 
 
 @endsection

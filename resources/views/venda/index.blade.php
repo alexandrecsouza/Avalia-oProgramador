@@ -11,13 +11,28 @@
 
 
 <div>
-    <form action="/pesquisa_venda" method="GET">
+    <form id="pesquisa" action="/pesquisa_venda" method="GET">
 
-    <input type="text"name="pesquisa">
+    <div>
+        <input type="text"name="pesquisa" placeholder="id, cliente, loja ou vendedor">
 
-    <input type="submit" value="pesquisa">
+        <input type="submit" value="pesquisa" >
+        
+
+        
+        <input type="checkbox" id="tem_data" name="tem_data" />
+        <label for="tem_data">fitrar data:</label>
+        <input id="data" type="date"name="data" min="1900-01-01" max="2100-12-31" value="2020-01-01">
+
+
+    </div>
     </form>
 </div>
+
+
+
+
+
 
 
 

@@ -59,7 +59,7 @@
     Email:
     </td>
     <td>
-    <input type="email"name="email" value="email@email.com">
+    <input id="email" type="email"name="email" value="email@email.com">
     </td>
 </tr>
 

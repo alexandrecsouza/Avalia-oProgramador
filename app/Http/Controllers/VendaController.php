@@ -11,9 +11,7 @@ class VendaController extends Controller
   
     
     function relatorio($vendas)
-    {
-
-        
+    {    
 
 
 
@@ -88,6 +86,9 @@ class VendaController extends Controller
     public function search(Request $request){
 
         $request->all();
+
+        //dd($request->data);
+
         $search= $request->pesquisa;
         
         $id=$search;
@@ -95,6 +96,8 @@ class VendaController extends Controller
         $id_loja=$search;
         $id_vendedor=$search;
 
+        $data=$request->data;
+        $tem_data=$request->tem_data;
 
         $clientes =DB::select('select id from clientes where id =? or nome = ? ',[$search,$search]);
         if($clientes)
@@ -108,8 +111,15 @@ class VendaController extends Controller
         if($vendedor)
         $id_vendedor = $loja[0]->id;
 
-        $vendas =DB::select('select * from vendas where id =? or id_cliente = ? or id_loja = ? or id_vendedor = ?',[$id,$id_cliente,$id_loja,$id_vendedor]);
-        
+        if($tem_data=="on"){
+        $vendas =DB::select('select * from vendas where (id =? or id_cliente = ? or id_loja = ? or id_vendedor = ?) and data = ?',[$id,$id_cliente,$id_loja,$id_vendedor,$data]);
+       
+        }
+        else{
+         $vendas =DB::select('select * from vendas where id =? or id_cliente = ? or id_loja = ? or id_vendedor = ?',[$id,$id_cliente,$id_loja,$id_vendedor]);
+       
+        }
+
         $relatorios=$this->relatorio($vendas);
         
         return view('venda.index',['relatorios'=>$relatorios]);
