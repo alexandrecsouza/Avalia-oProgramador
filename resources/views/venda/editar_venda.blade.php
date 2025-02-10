@@ -113,7 +113,7 @@
 
 <button type="button" onclick="adiciona_produto()">adicionar produto</button>
 
-<input type="submit" value="salvar" onclick="return true">
+<input type="submit" value="salvar" onclick="return validacao_venda()">
 
 </form>
 

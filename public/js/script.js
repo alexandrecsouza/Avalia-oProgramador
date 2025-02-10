@@ -28,3 +28,125 @@ Soma = 0;
 
 
 
+
+
+
+
+
+function validacao_produto(){
+
+    var id= document.getElementById("id");
+    var nome= document.getElementById("nome");
+    var cpf= document.getElementById("cor");
+    
+    var email= document.getElementById("valor");
+    
+    
+    if(id.value==""){
+    alert("ID vazio");
+    id.focus();
+    return false;
+    }
+
+    if(nome.value==""){
+    alert("Nome vazio");
+    nome.focus();
+    return false;
+    }
+    if(cor.value==""){
+    alert("cor vazio");
+    nome.focus();
+    return false;
+    }
+    if(valor.value==""){
+    alert("valor vazio");
+    nome.focus();
+    return false;
+    }
+    
+   
+    
+    return true;
+
+    }
+
+
+function validacao_vendedor(){
+
+    var id= document.getElementById("id");
+    var id_loja= document.getElementById("id_loja");
+    var nome= document.getElementById("nome");    
+    var cpf= document.getElementById("cpf");
+    
+    
+    if(id.value==""){
+    alert("ID vazio");
+    id.focus();
+    return false;
+    }
+
+    if(nome.value==""){
+    alert("Nome vazio");
+    nome.focus();
+    return false;
+    }
+    if(id_loja.value==""){
+    alert("id_loja vazio");
+    id_loja.focus();
+    return false;
+    }
+    if(cpf.value==""){
+    alert("cpf vazio");
+    email.focus();
+    return false;
+    }
+    
+    if(TestaCPF(cpf.value)==false){
+        alert("cpf incorreto");
+        nome.focus();
+        return false; 
+    }
+    
+    
+    return true;
+
+    }
+
+        
+        function validacao_produto(){
+
+            var id= document.getElementById("id");
+            var nome= document.getElementById("nome");
+            var cpf= document.getElementById("cor");
+            
+            var email= document.getElementById("valor");
+            
+            
+            if(id.value==""){
+            alert("ID vazio");
+            id.focus();
+            return false;
+            }
+        
+            if(nome.value==""){
+            alert("Nome vazio");
+            nome.focus();
+            return false;
+            }
+            if(cor.value==""){
+            alert("cor vazio");
+            nome.focus();
+            return false;
+            }
+            if(valor.value==""){
+            alert("valor vazio");
+            nome.focus();
+            return false;
+            }
+            
+           
+            
+            return true;
+        
+            }
+        

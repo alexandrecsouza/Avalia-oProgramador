@@ -60,7 +60,7 @@
 
 
 
-<input type="submit" value="atualizar">
+<input type="submit" value="atualizar"onclick="return validacao_vendedor()">
 
 </form>
 

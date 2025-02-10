@@ -27,10 +27,18 @@ class VendaController extends Controller
         $cliente=DB::select('select nome from clientes where id=?',[$vendas[$i]->id_cliente]);
         $vendedor=DB::select('select nome from vendedores where id=?',[$vendas[$i]->id_vendedor]);
         
+        $nome_loja="";
+        $nome_cliente="";
+        $nome_vendedor="";
 
+        if($loja)
         $nome_loja= $loja[0]->nome;
+        if($cliente)
         $nome_cliente=$cliente[0]->nome;
+        if($vendedor)
         $nome_vendedor=$vendedor[0]->nome;
+
+
 
         $produto_venda=$vendedor=DB::select('select * from venda_produtos where id_vendas=?',[$vendas[$i]->id]);
         
