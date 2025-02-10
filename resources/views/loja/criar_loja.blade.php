@@ -47,7 +47,7 @@
     </td>
     <td>
         
-    <input id="cep" type="text"name="cep" value="0">
+    <input id="cep" type="text"name="cep" value="">
 
     </td>
 </tr>
@@ -56,7 +56,7 @@
     Endereço: 
     </td>
     <td>
-    <input id="endereco" type="text"name="endereco" value="endereço">
+    <input id="endereco" type="text"name="endereco" value="">
     </td>
 </tr>
 
@@ -65,7 +65,7 @@
     Bairro:  
     </td>
     <td>
-    <input id="bairro" type="text"name="bairro" value="bairro">
+    <input id="bairro" type="text"name="bairro" value="">
     </td>
 </tr>
 
@@ -74,7 +74,7 @@
     Cidade: 
     </td>
     <td>
-    <input id="cidade" type="text"name="cidade" value="cidade" >
+    <input id="cidade" type="text"name="cidade" value="" >
     </td>
 </tr>
 
@@ -83,7 +83,7 @@
     UF: 
     </td>
     <td>
-    <input id= "uf" type="text"name="uf" value="uf">
+    <input id= "uf" type="text"name="uf" value="">
     </td>
 </tr>
 
