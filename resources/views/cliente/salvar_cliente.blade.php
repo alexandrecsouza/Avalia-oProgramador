@@ -3,22 +3,25 @@
 
 @extends('layouts.main')
 
-@section('titulo','Clientes')
+
 
 @section('conteudo')
 
-<h1>Cliente salvo</h1>
+
+
+@if ($resultado=="salvo")
+<h1>Salvo</h1>
 
 <a href="/cliente">voltar</a>
 
 
-<div>
-<p>ID:{{$cliente->id}} </p>
-<p>Nome:{{$cliente->nome}} </p>
-<p>cpf: {{$cliente->cpf}}</p>
-<p>sexo: {{$cliente->sexo}}</p>
-<p>email: {{$cliente->email}}</p>
+@else
+<h1>falha ao salvar</h1>
 
-</div>
+<a href="/cliente">voltar</a>
+
+
+@endif
+
 
 @endsection

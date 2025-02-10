@@ -91,7 +91,7 @@ function validacao_vendedor(){
     return false;
     }
     if(id_loja.value==""){
-    alert("id_loja vazio");
+    alert("loja vazio");
     id_loja.focus();
     return false;
     }
@@ -113,40 +113,40 @@ function validacao_vendedor(){
     }
 
         
-        function validacao_produto(){
+function validacao_venda(){
 
-            var id= document.getElementById("id");
-            var nome= document.getElementById("nome");
-            var cpf= document.getElementById("cor");
-            
-            var email= document.getElementById("valor");
-            
-            
-            if(id.value==""){
-            alert("ID vazio");
-            id.focus();
-            return false;
-            }
-        
-            if(nome.value==""){
-            alert("Nome vazio");
-            nome.focus();
-            return false;
-            }
-            if(cor.value==""){
-            alert("cor vazio");
-            nome.focus();
-            return false;
-            }
-            if(valor.value==""){
-            alert("valor vazio");
-            nome.focus();
-            return false;
-            }
-            
-           
-            
-            return true;
-        
-            }
-        
+    var id= document.getElementById("id");
+    var id_cliente= document.getElementById("id_cliente");
+    var id_loja= document.getElementById("id_loja");    
+    var data= document.getElementById("data");
+    
+    var observacao= document.getElementById("observacao");
+    
+    if(id.value==""){
+    alert("ID vazio");
+    id.focus();
+    return false;
+    }
+
+    if(id_cliente.value==""){
+    alert("cliente vazio");
+    id_cliente.focus();
+    return false;
+    }
+    if(id_loja.value==""){
+    alert("loja vazio");
+    id_loja.focus();
+    return false;
+    }
+    
+    if(observacao.value==""){
+        alert("observacao vazio");
+        nome.focus();
+        return false;
+    }
+    
+    
+    
+    return true;
+
+    }

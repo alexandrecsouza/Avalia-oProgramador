@@ -9,6 +9,28 @@ class VendedorController extends Controller
 {
     //
 
+    function id_existe($id){
+
+        $existe =DB::select('select * from vendedores where id =? ',[$id]);
+        
+        if($existe){
+            return true;
+        }
+
+        return false;
+    }
+    function id_loja_existe($id){
+
+        $existe =DB::select('select * from lojas where id =? ',[$id]);
+        
+        if($existe){
+            return true;
+        }
+
+        return false;
+    }
+
+
     public function index(){
         
         $vendedores =DB::select('select * from vendedores');
@@ -46,12 +68,18 @@ class VendedorController extends Controller
         $id_loja= $request->id_loja;
         $nome= $request->nome;
         $cpf=$request->cpf;
-        
+    
+        if($this->id_existe($id)){
+            return view('vendedor.salvar_vendedor',['resultado'=>"erro"]);
+        }
+        if(!$this->id_loja_existe($id_loja)){
+            return view('vendedor.salvar_vendedor',['resultado'=>"erro"]);
+        }
 
         DB::insert('insert into vendedores (id, id_loja, nome , cpf ) values (?, ?, ?,?)', [$id,$id_loja,$nome,$cpf]);
     
 
-        return view('vendedor.salvar_vendedor',['vendedor'=>$vendedor]);
+        return view('vendedor.salvar_vendedor',['resultado'=>"salvo"]);
     }
     
     public function edit($id){
@@ -75,11 +103,23 @@ class VendedorController extends Controller
         $nome= $request->nome;
         $cpf=$request->cpf;
 
+        
+        if(!$this->id_loja_existe($id_loja)){
+            return view('vendedor.salvar_vendedor',['resultado'=>"erro"]);
+        }
+        if($id!=$old_id){
+            if($this->id_existe($id)){
+                $this->edit($old_id);
+                
+                return view('vendedor.salvar_vendedor',['resultado'=>"erro"]);
+            }
+            }
+
 
         DB::update('update vendedores set id = ?, id_loja = ?, nome= ?,cpf = ? where id = ?', [$id,$id_loja,$nome,$cpf,$old_id]);
     
 
-        return view('vendedor.salvar_vendedor',['vendedor'=>$vendedor]);
+        return view('vendedor.salvar_vendedor',['resultado'=>"salvo"]);
     }
 
     public function destroy($id){

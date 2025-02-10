@@ -9,6 +9,16 @@ class ProdutoController extends Controller
 {
     //
 
+    function id_existe($id){
+
+        $existe =DB::select('select * from produtos where id =? ',[$id]);
+        
+        if($existe){
+            return true;
+        }
+
+        return false;
+    }
     
     public function index(){
         
@@ -50,10 +60,15 @@ class ProdutoController extends Controller
         $valor=$request->valor;
         
 
+        if($this->id_existe($id)){
+            return view('produto.salvar_produto',['resultado'=>"erro"]);
+        }
+
+
         DB::insert('insert into produtos (id, nome, cor , valor ) values (?, ?, ?,?)', [$id,$nome,$cor,$valor]);
     
 
-        return view('produto.salvar_produto',['produto'=>$produto]);
+        return view('produto.salvar_produto',['resultado'=>"salvo"]);
     }
     
     public function edit($id){
@@ -77,11 +92,18 @@ class ProdutoController extends Controller
         $cor=$request->cor;
         $valor=$request->valor;
 
+        if($id!=$old_id){
+            if($this->id_existe($id)){
+                $this->edit($old_id);
+                
+                return view('produto.salvar_produto',['resultado'=>"erro"]);
+            }
+            }
 
         DB::update('update produtos set id = ?, nome = ?, cor= ?,valor = ? where id = ?', [$id,$nome,$cor,$valor,$old_id]);
     
 
-        return view('produto.salvar_produto',['produto'=>$produto]);
+        return view('produto.salvar_produto',['resultado'=>"salvo"]);
     }
 
     public function destroy($id){

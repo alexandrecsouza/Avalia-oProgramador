@@ -39,9 +39,9 @@ class ClienteController extends Controller
 
     function id_existe($id){
 
-        $clientes =DB::select('select * from clientes where id =? ',[$id]);
+        $existe =DB::select('select * from clientes where id =? ',[$id]);
         
-        if($clientes){
+        if($existe){
             return true;
         }
 
@@ -60,15 +60,15 @@ class ClienteController extends Controller
         $sexo=$request->sexo;
         $email=$request->email;
 
-        /*
+        
         if($this->id_existe($id)){
-            return view('cliente.criar_cliente');
+            return view('cliente.salvar_cliente',['resultado'=>"erro"]);
         }
-        */
+        
         DB::insert('insert into clientes (id, nome , cpf , sexo, email) values (?, ?, ?,?, ?)', [$id,$nome,$cpf,$sexo,$email]);
     
 
-        return view('cliente.salvar_cliente',['cliente'=>$cliente]);
+        return view('cliente.salvar_cliente',['resultado'=>"salvo"]);
     }
     
     public function edit($id){
@@ -89,6 +89,16 @@ class ClienteController extends Controller
 
         $id= $request->id;
         
+        //dd($id,$old_id);
+
+        if($id!=$old_id){
+        if($this->id_existe($id)){
+            $this->edit($old_id);
+            
+            return view('cliente.salvar_cliente',['resultado'=>"erro"]);
+        }
+        }
+
         $nome= $request->nome;
         $cpf=$request->cpf;
         $sexo=$request->sexo;
@@ -97,7 +107,7 @@ class ClienteController extends Controller
         DB::update('update clientes set id = ?, nome= ?,cpf = ?, sexo = ?, email =? where id = ?', [$id,$nome,$cpf,$sexo,$email,$old_id]);
     
 
-        return view('cliente.salvar_cliente',['cliente'=>$cliente]);
+        return view('cliente.salvar_cliente',['resultado'=>"salvo"]);
     }
 
     public function destroy($id){
