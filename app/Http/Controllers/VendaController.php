@@ -8,6 +8,51 @@ use Illuminate\Support\Facades\DB;
 class VendaController extends Controller
 {
     //
+
+
+    
+    function vendedor_existe_loja($vende,$loja){
+
+        $existe =DB::select('select * from vendedores where id =? ',[$vende]);
+        
+        $id_loja= $existe[0]->id_loja;
+
+        $existe =DB::select('select * from lojas where id =? ',[$id_loja]);
+
+        if($existe){
+            return true;
+        }
+
+        return false;
+    }
+
+    function valida_venda($id, $id_cliente, $id_loja,$id_vendedor){
+
+        $existe =DB::select('select * from vendas where id =? ',[$id]);        
+        if($existe)
+            return false;
+        
+        $existe =DB::select('select * from clientes where id =? ',[$id_cliente]);  
+        if(!$existe)
+            return false;
+
+        $existe =DB::select('select * from lojas where id =? ',[$id_loja]);  
+        if(!$existe)
+            return false;
+
+        $existe =DB::select('select * from vendedores where id =? ',[$id_vendedor]);  
+        if(!$existe)
+            return false;
+
+
+            
+        if(!$this->vendedor_existe_loja($id_vendedor,$id_loja)){
+            return false;
+        }
+
+        return true;
+
+    }
   
     
     function relatorio($vendas)
@@ -170,8 +215,14 @@ class VendaController extends Controller
         $id_produto=$request->id_produto;
         $quantidade=$request->quantidade;
 
+
+        if(!$this->valida_venda($id, $id_cliente, $id_loja,$id_vendedor)){
+            return view('venda.salvar_venda',['resultado'=>"erro"]);
+        }
+
+
         $valor=0;
-        
+    
         //dd($id_produto);
         $lenght = sizeof($id_produto);
         for($i=0;$i<$lenght;$i++){
@@ -196,7 +247,7 @@ class VendaController extends Controller
         DB::insert('insert into vendas (id, id_cliente, id_loja , id_vendedor, data, valor, observacao, pagamento) values (?, ?, ?, ?, ?, ?, ?, ?)', [$id,$id_cliente,$id_loja,$id_vendedor,$data,$valor,$observacao,$pagamento]);
         
         //dd($venda);
-        return view('venda.salvar_venda',['venda'=>$venda]);
+        return view('venda.salvar_venda',['resultado'=>"salvo"]);
         
        }
 
@@ -277,6 +328,12 @@ class VendaController extends Controller
         $id_produto=$request->id_produto;
         $quantidade=$request->quantidade;
 
+        
+        if(!$this->valida_venda($id, $id_cliente, $id_loja,$id_vendedor)){
+            return view('venda.salvar_venda',['resultado'=>"erro"]);
+        }
+
+
         $valor=0;
         
         //dd($id_produto);
@@ -308,7 +365,7 @@ class VendaController extends Controller
         //DB::update('update  vendas set id = ? where id = ?', [$id,$old_id]);
         //dd($venda);
         
-        return redirect('/venda');
+        return view('venda.salvar_venda',['resultado'=>"salvo"]);
     }
 
 

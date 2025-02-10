@@ -1,21 +1,28 @@
 
 
 
+
 @extends('layouts.main')
 
-@section('titulo','venda')
+
 
 @section('conteudo')
 
-<h1>venda salva</h1>
+
+
+@if ($resultado=="salvo")
+<h1>Salvo</h1>
 
 <a href="/venda">voltar</a>
 
 
-<div>
-<p>ID:{{$venda->id}} </p>
+@else
+<h1>falha ao salvar</h1>
+
+<a href="/venda">voltar</a>
 
 
-</div>
+@endif
+
 
 @endsection
