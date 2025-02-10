@@ -11,9 +11,9 @@
 
 
 <div>
-    <form action="/pesquisa_produto" method="GET">
+    <form action="/pesquisa_produto" method="GET" placeholder="digite nome ou id">
 
-    <input type="text"name="pesquisa">
+    <input type="text"name="pesquisa" placeholder="digite nome ou id">
 
     <input type="submit" value="pesquisa">
     </form>

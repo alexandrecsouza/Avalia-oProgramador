@@ -11,7 +11,7 @@
 <div>
     <form action="/pesquisa_cliente" method="GET">
 
-    <input type="text"name="pesquisa">
+    <input type="text"name="pesquisa" placeholder="digite nome ou id">
 
     <input type="submit" value="pesquisa">
     </form>
