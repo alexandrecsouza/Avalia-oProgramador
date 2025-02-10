@@ -6,3 +6,36 @@ Projeto Avaliação Programador PHP - Laravel
 
 Banco de dados usado :mysql
 
+
+entradas usadas:
+
+Cep:
+
+74925720
+
+59125500
+
+58020395
+
+49030549
+
+cnpj:
+
+13712768000130
+
+68744692000116
+
+24548874000146
+
+81854436000140
+
+cpf:
+
+51453486496
+
+62533413917
+
+97335563518
+
+30271181613
+

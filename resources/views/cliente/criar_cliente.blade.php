@@ -38,7 +38,7 @@
     cpf: 
     </td>
     <td>
-    <input id="cpf" type="text"name="cpf" value="0">
+    <input id="cpf" type="text"name="cpf" value="0"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
     </td>
 </tr>
 <tr>
